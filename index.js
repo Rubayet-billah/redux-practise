@@ -3,6 +3,8 @@
 // middleware: redux-thunk
 // axios
 
+const { createStore } = require("redux");
+
 
 // constants
 const GET_TODOS_REQUEST = 'GET_TODOS_REQUEST';
@@ -60,3 +62,12 @@ const todosReducers = (state = initialTodosState, action) => {
             return state;
     }
 }
+
+// store
+const store = createStore(todosReducers);
+
+store.subscribe(() => {
+    console.log(store.getState())
+})
+
+store.dispatch()
